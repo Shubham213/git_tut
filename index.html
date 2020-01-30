@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rush Audios</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700,900|Nunito|Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Delius|Forum&display=swap" rel="stylesheet">
+    <style>
+        html,body{
+            border:0;
+            padding:0;
+            margin:0;
+            background:#f6f6f6;
+            box-sizing:border-box;
+            font-family:'Montserrat',sans-serif;
+            color:#fff;
+            scroll-behavior: smooth;
+            scroll-snap-type: proximity;
+            font-weight:500;
+        }
+        a{
+            text-decoration: none;
+            color:inherit;
+        }
+        #container{
+            width:100%;
+            height:auto;
+            /* min-height:100vh; */
+            background:#ffffff;
+        }
+        #header{
+            width:100%;
+            box-sizing: border-box;
+            height:60px;
+            font-size:10px;
+            line-height:30px;
+            /* background:cadetblue; */
+            /* background:#ffed4d; */
+            background: #2f2f2f;
+            background: transparent;
+            /* box-shadow:0 0 10px 0 rgba(0,0,0,0.2),0 0 3px 1px rgba(0,0,0,0.2); */
+            position:fixed;
+            top:0;
+            left:0;
+            color:#f2f2f2;
+           z-index: 1000;
+           
+        }
+        #h_lft{
+            position:absolute;
+            top:0;
+            left:0;
+            width:150px;
+            box-sizing:border-box;
+            padding:15px 20px;
+            padding-right:0;
+            color:#f2f2f2;
+            z-index:3;
+        }
+        #h_lft h1{
+            font-weight:500;
+        }
+        #h_mid{
+            width:calc(100% - 240px);
+            /* margin:0 50px 0 150px; */
+            height:30px;
+            padding:15px 0;
+            position:absolute;
+            top:0;
+            left:150px;
+            z-index:3;
+
+            /* transform:translateX(-50%); */
+        }
+        #h_rt{
+            position:absolute;
+            top:0;
+            right:0;
+            padding:10px 30px;
+            padding-right:20px;
+            height:40px;
+            width:40px;
+        }
+        #bars{
+            width:40px;
+            height:40px;
+        }
+        #bars>div{
+            padding:1px 0;
+            width:40px;
+            height:38px;
+            padding:5px;
+            box-sizing: border-box;
+        }
+        #bars>div>div{
+            width:22px;
+            height:3px;
+            margin:5px auto;
+            background:#f3f3f3;
+        }
+        [role="button"]{
+            cursor:pointer;
+        }
+        #h_in{
+            position:relative;
+            margin:0 auto;
+            width:100%;
+            /* max-width:1200px; */
+            /* background:#fff; */
+            padding:15px 20px;
+            height:60px;
+            box-sizing:border-box;
+        }
+        ::selection{
+            background:transparent;
+        }
+        .page{
+            width:100%;
+            height:100vh;
+            /* max-width:1200px; */
+            /* z-index:0; */
+            /* background:#000; */
+            margin:0 auto;
+            background:#030303;
+            position: relative;
+        }
+        .page{
+            /* margin-top:60px; */
+            height:100vh;
+        }
+        /* .page[pink]{
+            background:#f44 !important;
+        }
+        .page[light]{
+            background:#666 !important;
+        }
+        .page[dark]{
+            background:#aaa !important;
+        } */
+        /* .page::after{
+            content:'';
+            width:100%;
+            height:200px;
+            position:absolute;
+            bottom:-100px; */
+            /* opacity:0.; */
+            /* z-index:1;
+            background:inherit;
+            border-radius:50%;
+            box-shadow:0 3px 3px 0px rgba(0,0,0,0.2);
+        } */
+        .head{
+            width:100%;
+            height:100%;
+            /* max-width:1200px; */
+            margin:0 auto;
+        }
+        .head>.img{
+            width: 100%;
+            height:100%;
+            padding-top:40px;
+            overflow:hidden;
+            position:relative;
+            box-sizing:border-box;
+        }
+        #h_mid,#h_rt{
+            height:60px !important;
+        }
+        #page2 .img{
+            /* background-image:url("img1.jpeg"); */
+            background-size: cover;
+            background-repeat: no-repeat;
+            /* background-size: 510px 510px; */
+        }
+        #page3 .img{
+            background-image:url("img1.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <div id="h_in">
+                <div id="h_lft">
+                    <a role="button">
+                        <div id="logo" style="height:60px;">
+                            <h1 style="margin:0;">
+                                <span>R</span>
+                                <span>U</span>
+                                <span>S</span>
+                                <span>H</span>
+                                <span> </span>
+                                <span style="font-size:15px;line-height:15px;letter-spacing:4px;">AudiOS</span>
+                            </h1>
+                        </div>
+                    </a>
+                </div>
+                <div id="h_mid">
+                </div>
+                <div id="h_rt">
+                    <div id="menu">
+                        <div id="bars" role="button">
+                            <div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="menu2">
+                        <style>
+                            #h_rt{
+                                width:60px;
+                                padding:15px 20px 15px 10px;
+                            }
+                            #menu{
+                                z-index:5;
+                                width:60px !important;
+                            }
+                            #bars:hover{
+                                background:rgba(255, 255, 255, 0.05);
+                            }
+                            #menu2{
+                                z-index:-1;
+                                width:100vw;
+                                height:200px;
+                                padding:15px 0;
+                                padding-top:90px;
+                                /* border-radius: 5px; */
+                                background:#0e0e0e;
+                                /* background:#cecece; */
+                                position:absolute;
+                                box-shadow:0 10px 0 0 rgba(20,20,20,1);
+                                /* background:#444; */
+                                top:-250px;
+                                right:0px;
+                                opacity:0;
+                                transition: top 0.25s ease-out,opacity 0.25s ease-in-out;
+                                visibility:hidden;
+                            }
+                            #bars{
+                                /* transform: rotateZ(90deg); */
+                                padding:10px;
+                            }
+                            #menu2[focus]{
+                                top:0;
+                                opacity:1;
+                                visibility:visible;
+                            }
+                            #bars[focus]:not(:hover){
+                                /* transform: rotateZ(-90deg); */
+                                /* transition: transform 0.25s ease-in-out; */
+                            }
+                            #bars[focus]{
+                                /* background:#5e5e5e; */
+                                /* background:#cecece; */
+                                /* border-radius:5px 5px 0 0; */
+                                background:rgba(255,255,255,0.05);
+                                transition:background 0.1s linear;
+                            }
+                            #bars>div>div{
+                                margin:5px 4px;
+                                transition: all 0.25s ease-in-out;
+                            }
+                            #bars:not([focus]):hover>div>div:nth-child(2){
+                                width:10px;
+                                margin-left:5px;
+                                margin-right:10px;
+                            }
+
+                            #bars[focus]>div>div:nth-child(2){
+                                background:#ffffff;
+                                width:10px;
+                                margin-left:15px;
+                                margin-right:0px;
+                            }
+                            #in_menu2{
+                                /* height: 100px; */
+                                overflow:hidden;
+                                width:100%;
+                                transition:all 0.5s ;
+                                /* border-top:solid 1px #e0e0e0;
+                                border-bottom:solid 1px #e0e0e0; */
+                            }
+                            #menu2[focus]>#in_menu2{
+                                height:215px;
+                            }
+                            .itm{
+                                width:100%;
+                                height:40px;
+                                padding:5px 0;
+                                /* border-radius:5px; */
+                                /* margin:0 15px; */
+                                background:#101010;
+                                border-left:solid 10px rgba(73, 73, 73,0.2);
+                                color:#fefefe;
+                                max-width:600px;
+                                box-sizing: border-box;
+                                /* border:solid 1px transparent; */
+                                /* border-color:#2e2e2e , transparent , #2e2e2e , transparent; */
+
+                            }
+                            .itm:hover{
+                                background:rgba(73, 73, 73,0.5);
+                            }
+                            .name{
+                                width:100%;
+                                box-sizing:border-box;
+                                line-height:30px;
+                                height:30px;
+                                padding:0 10px;
+                                font-size:18px;
+                                font-family:'Nunito',sans-serif;
+                                text-align:center;
+                            }
+                            #itm12{
+                                position: absolute;
+                                top:100px;
+                                right:0px;
+                                width:100%;
+                                height: auto;
+                                max-width: 600px;
+                            }
+                            #itm11{
+                                position: absolute;
+                                top:100px;
+                                left:0;
+                                height: 160px;
+                                font-size:40px;
+                                line-height:60px;
+                                /* color:#c80303; */
+                                color:#f33037;
+                                width:calc(100% - 600px);
+                                text-align:center;
+                                font-weight: 900;
+                                word-break: break-all;
+                                overflow:hidden;
+                            }
+                            #h_lft>a>div{
+                                text-align: center;
+                            }
+                            #h_lft>a>div:hover{
+                                background:rgba(255,255,255,0.1);
+                            }
+                        </style>
+                        <div id="in_menu2">
+                            <div id="itm11">
+                                <div style="padding:50px 0;height:60px;">
+                                    <h1 style="margin:0;">#MOVE_ON
+                                    </h1>
+                                </div>
+                            </div>
+
+                            <div id="itm12">
+                                <div class="itm"  role="button">
+                                    <a href="#one"><div class="name">Home</div></a>
+                                </div>
+                                <div class="itm" role="button">
+                                    <a><div class="name">About Us</div></a>
+                                </div>
+                                <div class="itm"  role="button">
+                                    <a><div class="name">Contact Us</div></a>
+                                </div>
+                                <div class="itm"  role="button">
+                                    <a><div class="name">Newsletters</div></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="loader">
+            <div class="page" id="page1">
+                <div class="back">
+                    <style>
+                        .page:not(#page1){
+                            /* border-radius:0 0 30px 30px; */
+                            height:calc(100vh - 50px);
+                        }
+                        #page1{
+                            background:#030303;
+                        }
+                        .back{
+                            width:100%;
+                            height:100%;
+                            margin:0 auto;
+                            /* max-width:1200px; */
+                            border-radius:0 0 30px 30px;
+                            /* box-shadow:0 2px 6px 0 rgba(0,0,0,0.2),0 0 1px 0 rgba(0,0,0,0.1); */
+                        }
+                        .top_cont{
+                            width:100%;
+                            height:calc(100% - 50px);
+                        }
+                        .bot_cont{
+                            width:100%;
+                            padding: 0;
+                            box-sizing:border-box;
+                            height:50px;
+                            overflow:hidden;
+                            position: relative;
+                            background:#f33037;
+                            box-sizing:border-box;
+                            clip-path: polygon(100% 0, 100% 100%, 0% 100%);
+                            /* border:solid 1000px #f9f9f9; */
+                            /* border-radius: 0 0 30px 30px; */
+                        }
+                        .arr{
+                            position:absolute;
+                            width:20px;
+                            height:20px;
+                            overflow:hidden;
+                            /* background:#444; */
+                            background:transparent;
+                            z-index:1;
+                            top:2px;
+                        }
+                        .arr:not(.arr2){
+                            animation: 0.5s forwa ease-in infinite alternate;
+                        }
+                        .arr.arr2{
+                            animation: 0.5s forw ease-in infinite alternate;
+                        }
+                        @keyframes forwa{
+                            0%{
+                                top:2px;
+                            }
+                            100%{
+                                top:15px;
+                            }
+                        }
+                        @keyframes forw{
+                            0%{
+                                top:10px;
+                            }
+                            100%{
+                                top:18px;
+                            }
+                        }
+                        .arr::before,.arr::after{
+                            position: absolute;
+                            width:0;
+                            height:0;
+                            top:-10px;
+                            padding:10px;
+                            content:"";
+                            line-height:0;
+                            background:#444;
+                            /* background:inherit; */
+                            /* transform-origin: 50% 50%; */
+                            transform:rotateZ(45deg);
+                        }
+                        #page1 .arr::after{
+                            background: rgb(253, 240, 122);
+                        }
+                        #page1 .bot_cont{
+                            border-color:#444;
+                        }
+                        .arr::before{
+                            top:-5px;
+                            background:#ff6f6f;
+                        }
+                        .arr.arr2{
+                            top:10px;
+                            z-index:0;
+                        }
+                        #page1 .Next::after{
+                            color:#0e0e0e;
+                        }
+                        .page .Next::after{
+                            color:#fefefe;
+                        }
+                        .Next::after{
+                            content:"Scoll Down";
+                            width:120px;
+                            position:absolute;
+                            left:30px;
+                            top:-5px;
+                            height:30px;
+                            font-size:15px;
+                            line-height:30px;
+                            padding:10px 0;
+                        }
+                    </style>
+                    <style>
+                        #back{
+                            width:100%;
+                            height:100%;
+                            display:flex;
+                            flex-direction: column;
+                            flex-wrap: nowrap;
+                            align-content: space-around;
+                            justify-content: space-evenly;
+                        }
+                        #back>div>div{
+                            display:flex;
+                            flex-direction:row;
+                            flex-wrap: nowrap;
+                            align-content: space-around;
+                            justify-content: space-evenly;
+                        }
+                        #back>div>div>div{
+                            /* position:absolute; */
+                            width:150px;
+                            height:150px;
+                            display:inline-block;
+                            background-image: url('shapes.png');
+                            background-repeat: no-repeat;
+                            background-size: 510px 510px;
+                        }
+                        #back>div>div>div[square]{
+                            background-position: 100% 100%;  
+                        }
+                        #back>div>div>div[triangle]{
+                            background-position: 50% 100%;  
+                        }
+                        #back>div>div>div[shape1]{
+                            background-position: -1% 100%;  
+                        }
+                        #back>div>div>div[shape2]{
+                            background-position: 0% 0%;  
+                        }
+                        #back>div>div>div[shape3]{
+                            background-position: 0% 50%;  
+                        }
+                        #back>div>div>div[shape4]{
+                            background-position: 50% 50%;  
+                        }
+                        #back>div>div>div[shape5]{
+                            background-position: 50% 0%;  
+                        }
+                        #back>div>div>div[shape6]{
+                            background-position: 100% 0%;  
+                        }
+                        #back>div>div>div[shape7]{
+                            background-position: 100% 50%;  
+                        }
+                    </style>
+                    <div class="top_cont">
+                        <!-- <div id="back">
+                            <div style="animation:;transform:rotatez(45deg);">
+                                <div>
+                                    <div square></div>
+                                    <div triangle></div>
+                                </div>
+                                <div>
+                                    <div shape1></div>
+                                    <div shape2></div>
+                                    <div shape3></div>
+                                </div>
+                                <div>
+                                    <div shape4></div>
+                                    <div shape5></div>
+                                </div>
+                                <div>
+                                    <div shape6></div>
+                                    <div shape7></div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="bot_cont" id="one">
+                        <!-- <a href="#one" role="button"><div class="Next" style="position:relative;margin:0 auto;width:120px;top:5px;height:100%;background:transparent;">
+                            <div class="arr"></div>
+                            <div class="arr arr2"></div>
+                        </div></a> -->
+                    </div>
+                    <div style="position:absolute;bottom:30px; line-height:25px;left:15px;font-size:16px;color:#f0f0f0;letter-spacing:1px;font-weight:500;">#MOVE_ON</div>
+                </div>
+            </div>
+            <style>
+                .page:not(#page1){
+                    background:#444;
+                }
+                #page1{
+                    z-index:1;
+                }
+            </style>
+            <!-- <div class="page" id="page2">
+                <div class="back">
+                    <div class="top_cont">
+                        <div class="head">
+                            <div class="img">
+                                <img src="img1.jpeg" alt=""> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bot_cont" id="one">
+                        <a href="#one" role="button"><div class="Next" style="position:relative;margin:0 auto;width:120px;top:5px;height:100%;background:transparent;">
+                            <div class="arr"></div>
+                            <div class="arr arr2"></div>
+                        </div></a>
+                    </div>
+                </div>
+            </div>
+            <div class="page" id="page3" pink>
+                <div class="back">
+                    <div class="top_cont">
+                        <div class="head">
+                            <div class="img">
+                                <img src="img1.jpeg" alt=""> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bot_cont" id="one">
+                        <a href="#one" role="button"><div class="Next" style="position:relative;margin:0 auto;width:120px;top:5px;height:100%;background:transparent;">
+                            <div class="arr"></div>
+                            <div class="arr arr2"></div>
+                        </div></a>
+                    </div>
+                </div>
+            </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <style>
+                .fr{
+                    width:100%;
+                    height:100vh;
+                    position: relative;
+                    background:#1e2e2f;
+                    /* background:linear-gradient(rgba(243, 48, 55,1) 0%, rgba(243, 48, 55,0) 50%, rgba(243, 48, 55,0) 30%); */
+
+                }
+                /* .ba{
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    transform: translate(-);
+                    width:40px;
+                    height:80px;
+                    background:#ff9f9f;
+                    border-radius:20px;
+                    filter: blur(10px);
+                    
+                    background:linear-gradient(rgba(243, 48, 55,1) 0px, rgba(243, 48, 55,0) 50px, rgba(243, 48, 55,0) 30px);
+                } */
+                .ban{
+                    width:100%;
+                    height:300px;
+                    position: relative;
+                    padding-top:100px;
+                    box-sizing: border-box;
+                    top:0;
+                    left:0;
+                    overflow:hidden;
+                    background-color: inherit;
+                    /* filter:contrast(1); */
+                    /* filter: contrast(20) ; */
+                }
+                /* .ban_in{
+                    background-color: inherit;
+                    filter:contrast(1);
+                    filter: contrast(20) ;
+                    width:100%;
+                    height:300px;
+                    position:absolute;
+                    top:0;
+                } */
+                .bann{
+                    margin:0 auto;
+                    padding:20px 0;
+                    /* background:#fff; */
+                    color:#eefefe;
+                    font-size:40px;
+                    text-align: center;
+                    letter-spacing: 6px;
+                }
+                .bann>div{
+                    /* position:relative; */
+                    padding-bottom:60px;
+                }
+                .bann>div::after{
+                    content:"";
+                    position: absolute;
+                    width:100px;
+                    height:3px;
+                    bottom:50px;
+                    transform: translateX(-50%);
+                    -ms-transform: translateX(-50%);
+                    -webkit-transform: translateX(-50%);
+                    -moz-transform:translateX(-50%);
+                    left:50%;
+                    /* overflow: hidden; */
+                    /* box-shadow:0 3px 3px -1px rgba(20,20,20,0.5),0 -1px 3px -1px rgba(20,20,20,0.5),0 0px 3px -5px rgba(20,20,20,1); */
+                    /* background:linear-gradient(90deg ,rgba(255, 111, 111,0),rgba(255, 111, 111,1) 30%,rgba(255, 111, 111,1) 70%,rgba(255, 111, 111,0)); */
+                    background:#f33037;
+                }
+                @supports (background-clip: polygon(0 0 , 100% 100% , 100% 0)){
+                    .ban>div[b]{
+                        display:none !important;
+                    }    
+                    .bot_cont{
+                        background:none !important;
+                    }
+                }
+                .ban>div[b]{
+                    height:50px;
+                    width:100%;
+                    background-color: #f33037;
+                    position:absolute;
+                    top:0;
+                    clip-path: polygon(0 0, 100% 0,0 100%);
+                }
+            </style>
+
+            <div class="fr" id="fr1">
+                <div class="ban">
+                    <div class="ban_in">    
+                        <div class="ba"></div>
+                        <div class="ba"></div>
+                        <div class="ba"></div>
+                    </div>
+                    <div b></div>
+                    <div class="bann">
+                        <div>
+                            <h1 style="margin:0;">
+                                STORIES
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="footer"></div>
+    </div>
+    <script>
+        let d = document;
+        function set(x,y,a,b,c){
+            if(x==1){
+                d.getElementById(a).addEventListener(b, function(){c(this);});
+            }else if(x==2){
+                d.getElementsByClassName(a)[y].addEventListener(b, function(){c();});
+            }
+        }
+        function k(a){
+            if(a.getAttribute("focus")==null)
+            {
+                a.setAttribute("focus","");
+                d.getElementById("menu2").setAttribute("focus","");
+            }
+            else{
+                a.removeAttribute("focus");
+                try{d.getElementById("menu2").removeAttribute("focus");}catch(e){}
+            }
+        }
+        
+        set("1",0,"bars",'click',k);
+
+    </script>
+</body>
+</html>
